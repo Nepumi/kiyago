@@ -1,0 +1,26 @@
+problem_id : 002
+
+custom_judge : True
+judge_command : "python3 [PROBLEM_DIR]/grading_script.py [PROBLEM_DIR] [#]"
+
+n_cases : 10
+case_scores : 10
+
+time_limit : 1000
+memory_limit : 256
+
+compile:
+  c : 'gcc -w -std=c11 -O2 "[PROBLEM_DIR]" -D [GRADER_DEFINE] -o "[PROBLEM_DIR]/subject_binary"'
+  cpp : 'g++ -w -std=c++17 -O2 "[PROBLEM_DIR]" -D [GRADER_DEFINE] -o "[PROBLEM_DIR]/subject_binary"'
+
+testcase: # Overwrite
+  9 :
+    memory_limit : 8
+    time_limit : 100
+  10 : 
+    memory_limit : 8
+    time_limit : 100
+    recompile: True
+    compile:
+      c : 'gcc -w -std=c11 -O1 "[PROBLEM_DIR]" -D [GRADER_DEFINE] -o "[PROBLEM_DIR]/subject_binary"'
+      cpp : 'g++ -w -std=c++17 -O1 "[PROBLEM_DIR]" -D [GRADER_DEFINE] -o "[PROBLEM_DIR]/subject_binary"'
