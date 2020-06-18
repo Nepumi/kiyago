@@ -19,12 +19,6 @@ Python 3.8 or newer
 sudo apt install python3
 ```
 
-g++
-
-```
-sudo apt install g++
-```
-
 ## Structure
 
 ### Problems
@@ -129,8 +123,7 @@ In this example, there are 2 problems and 3 subjects.
 ├── problems/
 │   ├── 001/
 │   │   ├── compile_space/
-│   │   │   ├── 001_001.c
-│   │   │   └── 001_001_bin
+│   │   │   └── subject_src.c
 │   │   ├── inputs/
 │   │   │   ├── 1.in
 │   │   │   ├── 2.in
@@ -139,13 +132,12 @@ In this example, there are 2 problems and 3 subjects.
 │   │   │   ├── 1.sol
 │   │   │   ├── 2.sol
 │   │   │   └── 3.sol
-│   │   └── config.yaml
+│   │   ├── config.yaml
+│   │   └── subject_bin
 │   └── 002/
 │       ├── compile_space/
 │       │   ├── custom_header_1.h
-│       │   ├── custom_header_2.h
-│       │   ├── user_001_002.cpp
-│       │   └── user_001_002_bin
+│       │   └── custom_header_2.h
 │       ├── config.yaml
 │       └── grading_binary
 ├── run_kiyago
@@ -184,21 +176,13 @@ judge_command : CMD_TO_RUN_JUDGE
 
 ### Input to custom_judge
 
-If you use the custom judge, Kiyago assumes you already know what you want to do. So the only infomation that are going to be in system argv are :
+If you use the custom judge, Kiyago provides these following information via :
 
-| Placeholder   | Description |
-|:-------------:|-------------|
-|`[PROBLEM_DIR]`| path to root directry of the problem | 
-|`[#]`          | number of current testcase |
-
-custom_judge are expected to read config file(s) by itself.
+```
+[PROBLEM_DIR]/judge_binary [PROBLEM_DIR] [#]
+```
 
 For example
-
-```yaml
-# config.yaml
-judge_command : "[PROBLEM_DIR]/judge_binary [PROBLEM_DIR] [#]"
-```
 
 ```c
 // judge_binary.c
@@ -222,7 +206,7 @@ where KESE stands for Kiyago Standard Error Signal which are :
 | KESE    | Definition           |
 |:-------:|----------------------|
 | OK      | No problem           |
-| RUNTIME | General runtime err. |
+| UNSPECI | Unspecified rt. err. |
 | TIMELXC | Time limit exceed    |
 | MEMLXC  | Mem. limit exceed    |
 | FPEXCPT | Floating point excp. |

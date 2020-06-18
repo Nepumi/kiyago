@@ -1,0 +1,4 @@
+#!/bin/python3 
+import standard_judge.judge as judge
+
+judge.main()

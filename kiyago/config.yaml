@@ -1,4 +1,8 @@
-compile:
-  c : 'gcc -w -std=c11 -O2 "[PROBLEM_DIR]" -D [GRADER_DEFINE] -o "[PROBLEM_DIR]/subject_binary"'
-  cpp : 'g++ -w -std=c++17 -O2 "[PROBLEM_DIR]" -D [GRADER_DEFINE] -o "[PROBLEM_DIR]/subject_binary"'
+problem_dir : ./problems/[PROBLEM_ID]
+grader_define : __KIYAGO__
+subject_src : subject_src.cc
+subject_bin : subject_bin
+cmp_out : compile_space/cmp_out.txt
+cmp_err : compile_space/cmp_err.txt
 
+archive_dir : ./archives/[USER_ID]/[PROBLEM_ID]/[TIMESTAMP].cc

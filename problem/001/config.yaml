@@ -1,9 +1,0 @@
-problem_id : 001
-
-custom_judge : False
-
-n_cases : 10
-case_score : 10
-
-time_limit : 1000
-memory_limit : 256
