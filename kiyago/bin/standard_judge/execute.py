@@ -24,7 +24,7 @@ def execute(case: Testcase, judge_conf: dict) -> (int, str):  # (elapsed, kses)
     start_time = time.time()
     proc = subprocess.Popen([run_command], shell=True, preexec_fn=os.setsid)
     try:
-        proc.communicate(timeout=case.time_limit)
+        proc.communicate(timeout=case.time_limit / 1000)
         t = proc.returncode
     except subprocess.TimeoutExpired:
         t = 124  # TLE

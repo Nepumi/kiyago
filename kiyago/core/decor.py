@@ -34,28 +34,32 @@ class puts:
             else:
                 print(colors.RED, end="")
             print(c, end="")
-        print(f"{colors.RESET} --> {all_score} pts.\n\ttook {all_time} ms.")
+        print(f"{colors.RESET} --> {all_score} pts. in {all_time} ms.")
 
     @staticmethod
     def payload_info(payload: Payload):
         print(f"Timestamp\t: {datetime.fromtimestamp(payload.timestamp)}")
         print(f"User ID\t\t: {payload.user_id}")
-        print(f"Problem ID\t: {payload.problem_id}")
+        print(f"Problem ID\t: {payload.problem_id}\n")
 
 
 class says:
+    @staticmethod
+    def network(s: str):
+        print(f"[ {colors.BOLD}{colors.CYAN}NETWRK{colors.RESET} ] {s}")
+
     @staticmethod
     def kiyago(s: str):
         print(f"[ {colors.BOLD}{colors.WHITE}KIYAGO{colors.RESET} ] {s}")
 
     @staticmethod
     def err(s: str):
-        print(f"[ {colors.BOLD}{colors.RED}ERROR{colors.RESET} ]  {s}")
+        print(f"[ {colors.BOLD}{colors.RED}  !!  {colors.RESET} ] {s}")
 
     @staticmethod
     def ok(s: str):
-        print(f"[ {colors.BOLD}{colors.GREEN}OK{colors.RESET} ]     {s}")
+        print(f"[ {colors.BOLD}{colors.GREEN}  OK  {colors.RESET} ] {s}")
 
     @staticmethod
     def make(s: str):
-        print(f"[ {colors.BOLD}{colors.BLUE}MAKE{colors.RESET} ]   {s}")
+        print(f"[ {colors.BOLD}{colors.BLUE} MAKE {colors.RESET} ] {s}")
