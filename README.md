@@ -6,7 +6,7 @@ Kiyago (stylized as キヤー子) stands for Kiyago Is Yet Another Grader Optimi
 
  Kiyago offers more flexible choice of grading task for competitive programming contest. Each problem is fully customizable and inherently well-structured.
 
- In this version will Aim for supporting other programming language(Eg. python Java)
+ *In this version will Aim for supporting other programming language(Eg. python Java)*
 
 ## Aims
 
@@ -14,7 +14,7 @@ Kiyago (stylized as キヤー子) stands for Kiyago Is Yet Another Grader Optimi
 - Error well-handled.
 - Well structured.
 - Easy to maintain.
-- Support programming language as many as possible
+- **Support programming language as many as possible**
 
 ## Prerequisites
 
