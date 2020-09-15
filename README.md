@@ -1,8 +1,12 @@
+> \**Almost all copied markdown*\*
+
 # キヤー子
 
 Kiyago (stylized as キヤー子) stands for Kiyago Is Yet Another Grader Optimized for POSN-KKU (recursive nomenclature is the best).
 
  Kiyago offers more flexible choice of grading task for competitive programming contest. Each problem is fully customizable and inherently well-structured.
+
+ In this version will Aim for supporting other programming language(Eg. python Java)
 
 ## Aims
 
@@ -10,6 +14,7 @@ Kiyago (stylized as キヤー子) stands for Kiyago Is Yet Another Grader Optimi
 - Error well-handled.
 - Well structured.
 - Easy to maintain.
+- Support programming language as many as possible
 
 ## Prerequisites
 
@@ -261,6 +266,7 @@ The `!` verdict are automatically thrown with KSES of `JUDGEER`.
 ## Author
 
 - **Krit Patyarath** - *Original work* - **[pannxe](www.github.com/pannxe)**
+- **Peeraphol Sudputong** - *Implement for other lang* - **[Nepumi](https://github.com/Nepumi)**
 
 ## License
 
