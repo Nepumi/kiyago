@@ -49,7 +49,43 @@ Please read this table for more information :
 | solutions     | Where solutions files (*.sol) goes                 |
 | config.yaml   | Config file                                        |
 
+
+#### config.yaml
+You can *config* problems by changing config.yaml and here the thing that you can config
+
+
+| Name          | Usage                                              |
+|:-------------:|----------------------------------------------------|
+| n_cases       | Tell the grader how many Test-case in this problem|
+| memory_limit  | Set memory limit (mb.)|
+| time_limit    | Set time limit (ms.)  |
+| case_score    | Set score (per case)  |
+|    |   |
+| compile       | Set command line to compile for each lang  |
+| run           | Set command line to run for each lang  |
+
 Example :
+
+```
+custom_judge : false
+n_cases : 10
+
+memory_limit : 16
+time_limit : 1000
+case_score : 10
+
+compile:
+  c: gcc [SRC_PATH] -O2 -o [BIN_PATH] [CMP_OUT] [CMP_ERR]
+  cpp: g++ [SRC_PATH] -O2 -std=c++17 -o [BIN_PATH] [CMP_OUT] [CMP_ERR]
+  py: cp [SRC_PATH] [BIN_PATH]
+  
+run:
+  c: "[BIN_PATH]"
+  cpp: "[BIN_PATH]"
+  py: python3 [BIN_PATH]
+```
+
+Here is an Example of each problem :
 
 ```
 problems/
