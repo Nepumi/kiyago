@@ -1,6 +1,5 @@
 sol_path : "[PROBLEM_DIR]/solutions/[#].sol"
 cnf_path : "[PROBLEM_DIR]/config.yaml"
-bin_path : "[PROBLEM_DIR]/compile_space/subject_bin"
 
 in_path : "[PROBLEM_DIR]/inputs/[#].in"
 out_path : "[PROBLEM_DIR]/tmp/result.txt"

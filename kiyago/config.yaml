@@ -1,10 +1,10 @@
 problem_dir : ./problems/[PROBLEM_ID]
 grader_define : __KIYAGO__
-subject_src : ./problems/[PROBLEM_ID]/compile_space/subject_src.cc
+subject_src : ./problems/[PROBLEM_ID]/compile_space/subject_src
 subject_bin : ./problems/[PROBLEM_ID]/subject_bin
 cmp_out : ./problems/[PROBLEM_ID]/compile_space/cmp_out.txt
 cmp_err : ./problems/[PROBLEM_ID]/compile_space/cmp_err.txt
 
-archive_dir : ./archives/[USER_ID]/[PROBLEM_ID]/[TIMESTAMP].cc
+archive_dir : ./archives/[USER_ID]/[PROBLEM_ID]/[TIMESTAMP]
 
 sleep_interval : 1

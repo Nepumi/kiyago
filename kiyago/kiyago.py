@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-from core import decor, make, utils
-import network
+from core import decor, make, utils,file_type
+#import network
+import Test_network as network
 import yaml
 import subprocess
 import os
@@ -8,9 +9,9 @@ import time
 
 
 # Communicate with judge.
-def get_verdic(judge_path: str, prob_dir: str, at_case: int) -> list:
+def get_verdic(judge_path: str, prob_dir: str, at_case: int,lang:str,lang_bin:str) -> list:
     try:
-        proc = subprocess.run([judge_path, prob_dir, at_case], stdout=subprocess.PIPE)
+        proc = subprocess.run([judge_path, prob_dir, at_case, lang,lang_bin], stdout=subprocess.PIPE)
         out = proc.stdout.decode("UTF-8").strip()
         result = out.split(";")
     except:
@@ -64,11 +65,11 @@ def get_problem_conf(problem_dir: str) -> dict:
 
 
 def on_recieve():
-    global kiyago_conf, problem_conf
+    global kiyago_conf, problem_conf,payload
     decor.says.kiyago("Started compiling...")
 
     # Compile and check compile result
-    make_ok = make.make(kiyago_conf, problem_conf)
+    make_ok = make.make(kiyago_conf, problem_conf,payload.lang)
 
     # If not make ok
     if not make_ok:
@@ -90,7 +91,7 @@ def on_recieve():
 
     # Get verdic for each testcase
     for i in range(1, problem_conf["n_cases"] + 1):
-        result = get_verdic(judge_path, kiyago_conf["problem_dir"], str(i))
+        result = get_verdic(judge_path, kiyago_conf["problem_dir"], str(i),payload.lang,kiyago_conf["subject_bin"])
         for i in range(3):
             all_result[i] += result[i]
     
@@ -137,6 +138,12 @@ if __name__ == "__main__":
             # Subtitute placeholders
             kiyago_conf = get_kiyago_conf(init_kiyago_conf)
             problem_conf = get_problem_conf(kiyago_conf["problem_dir"])
+            
+            kiyago_conf["subject_src"] += file_type.langsrc2filetype(payload.lang)
+            kiyago_conf["archive_dir"] += file_type.langsrc2filetype(payload.lang)
+            kiyago_conf["subject_bin"] += file_type.langbin2filetype(payload.lang)
+
+            #print("Meow",kiyago_conf["subject_src"])
 
             # Write subject source file.
             utils.write_file(kiyago_conf["subject_src"], payload.code)

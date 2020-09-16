@@ -10,6 +10,8 @@ from .execute import execute
 
 problem_path = sys.argv[1]
 at_case = sys.argv[2]
+lang = sys.argv[3]
+lang_bin = sys.argv[4]
 
 
 def main():
@@ -28,8 +30,13 @@ def main():
         time_limit=prob_conf["time_limit"],
         score=prob_conf["case_score"],
     )
+    
+    repl = [("[BIN_PATH]",lang_bin)]
+    for i in repl:
+        prob_conf["run"][lang] = prob_conf["run"][lang].replace(i[0],i[1])
 
-    elapsed, kses = execute(case, judge_conf)
+
+    elapsed, kses = execute(case, judge_conf,prob_conf["run"][lang])
 
     score = 0
     if kses == "OK":
